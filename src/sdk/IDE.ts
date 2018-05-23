@@ -1,17 +1,25 @@
-import { observable } from "mobx";
+import { extendObservable, observable, runInAction, autorun } from "mobx";
 import store from "./store";
 import Workbench from "./Workbench";
 import FileSystem from "./FileSystem";
 
 class IDE {
-  store = store;
+  static $singleton: IDE;
+  @observable store = store;
+
   constructor() {
-    const state = this.store.state;
-    state.workbench = new Workbench();
-    state.fs = new FileSystem();
-    state.panes = observable.map();
-    state.tabs = observable.map();
-    state.groups = observable.map();
+    if (IDE.$singleton) return IDE.$singleton;
+
+    runInAction("initialize store state", () => {
+      extendObservable(this.store.state, {
+        tabs: observable.map(),
+        groups: observable.map()
+      });
+      extendObservable(this.store.state, {
+        fs: new FileSystem(),
+        workbench: new Workbench()
+      });
+    });
   }
 }
 
