@@ -1,4 +1,6 @@
-import React from "react";
+import { connect } from "utils/mobx";
+import Workbench from "./Workbench";
 
-const App = () => <div>hello this is the app</div>;
+const App = connect(state => state.workbench)(Workbench);
+
 export default App;
