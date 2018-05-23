@@ -4,7 +4,6 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TsConfigPathsPlugin = require('awesome-typescript-loader').TsConfigPathsPlugin
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const GitRevisionPlugin = require('git-revision-webpack-plugin')
 
 const PROJECT_ROOT = path.resolve(__dirname)
@@ -71,20 +70,11 @@ const commonConfig = {
           limit: 10000,
           mimetype
         }
-      })),
-      {
-        /** css stylesheet loader */
-        test: /\.css/,
-        include: resolve('node_modules'),
-        use: [devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader']
-      },
+      }))
     ]
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'style/[name].[contenthash].css'
-    }),
     new HtmlWebpackPlugin({
       template: resolve(`src/app/index.html`),
       inject: true,
