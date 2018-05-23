@@ -1,10 +1,22 @@
-import { observable } from "mobx";
+import { observable, ObservableMap } from "mobx";
+
+import Win from "./win";
+import FS from "./fs";
+import Tab from "./tab";
+import TabGroup from "./tabGroup";
+import Pane from "./pane";
+
+type IState = {
+  win?: Win;
+  fs?: FS;
+  tabs?: ObservableMap<string, Tab>;
+  tabGroups?: ObservableMap<string, TabGroup>;
+  panes?: ObservableMap<string, Pane>;
+};
 
 class Store {
   static $singleton: Store;
-  public state = observable({
-    tabGroups: observable.map({})
-  });
+  public state = observable.object<IState>({});
 
   constructor() {
     if (!Store.$singleton) Store.$singleton = this;
