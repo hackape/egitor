@@ -1,4 +1,5 @@
 import { StateTreeNode } from "@/sdk/store";
+import { observable } from "mobx";
 import {
   Titlebar,
   Activitybar,
@@ -9,12 +10,12 @@ import {
 } from "./parts";
 
 class Workbench extends StateTreeNode {
-  titlebar = new Titlebar();
-  activitybar = new Activitybar();
-  sidebar = new Sidebar();
-  editorbar = new Editorbar();
-  panelbar = new Panelbar();
-  statusbar = new Statusbar();
+  @observable titlebar = new Titlebar();
+  @observable activitybar = new Activitybar();
+  @observable sidebar = new Sidebar();
+  @observable editorbar = new Editorbar();
+  @observable panelbar = new Panelbar();
+  @observable statusbar = new Statusbar();
 
   constructor() {
     super();
