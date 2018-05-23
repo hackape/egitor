@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "mobx-react";
 import { AppContainer } from "react-hot-loader";
+import { ThemeProvider } from "styled-components";
+import theme from "./theme";
 import App from "./App";
 import IDE from "@/sdk/IDE";
 
@@ -13,9 +15,11 @@ const isString = arg => typeof arg === "string";
 const render = (Component: React.ComponentType) => {
   ReactDOM.render(
     <AppContainer>
-      <Provider state={ide.store.state}>
-        <Component />
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider state={ide.store.state}>
+          <Component />
+        </Provider>
+      </ThemeProvider>
     </AppContainer>,
     document.getElementById("app")
   );
