@@ -1,4 +1,4 @@
-import { observable, ObservableMap } from "mobx";
+import { ObservableMap, action } from "mobx";
 import { StateTreeNode } from "./store";
 
 /**
@@ -14,25 +14,21 @@ import { StateTreeNode } from "./store";
 export default class Resource extends StateTreeNode {
   protected $$resources: ObservableMap<any, any>;
   private $$type: string;
-  private $$id: string;
-
-  get id() {
-    return this.$$id;
-  }
-
-  set id(value) {
-    this.$$resources.set(value, this);
-    this.$$id = value;
-  }
+  id: string;
 
   constructor(resourceType: string) {
     super();
 
     this.$$type = resourceType;
     if (!this.globalState.hasOwnProperty(this.$$type)) {
-      this.globalState[this.$$type] = observable.map();
+      throw `resources domain ${this.$$type} has not been initialized yet`;
     }
 
     this.$$resources = this.globalState[this.$$type];
+  }
+
+  @action("register resource")
+  register() {
+    this.$$resources.set(this.id, this);
   }
 }
