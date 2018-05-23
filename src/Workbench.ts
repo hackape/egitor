@@ -1,9 +1,9 @@
 import { StateTreeNode } from "./store";
 
-class Win extends StateTreeNode {
+class Workbench extends StateTreeNode {
   constructor() {
     super();
   }
 }
 
-export default Win;
+export default Workbench;

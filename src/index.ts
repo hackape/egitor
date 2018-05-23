@@ -1,4 +1,4 @@
-import IDE from "./ide";
+import IDE from "./IDE";
 
 const ide = new IDE();
 
