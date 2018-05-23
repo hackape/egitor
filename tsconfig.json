@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./src/",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "utils/mobx": ["./app/utils/mobx"],
+      "styled-components": ["./app/utils/styled-components-mod"]
     },
     "outDir": "out/",
     "module": "esnext",
