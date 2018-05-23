@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": "./src/",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "outDir": "out/",
     "module": "esnext",
     "target": "es5",
