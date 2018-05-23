@@ -11,7 +11,7 @@ class IDE {
     state.fs = new FileSystem();
     state.panes = observable.map();
     state.tabs = observable.map();
-    state.tabGroups = observable.map();
+    state.groups = observable.map();
   }
 }
 

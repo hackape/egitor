@@ -1,4 +1,4 @@
-import { StateTreeNode } from "@/store";
+import { StateTreeNode } from "@/sdk/store";
 import {
   Titlebar,
   Activitybar,
