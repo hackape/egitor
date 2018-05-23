@@ -1,4 +1,4 @@
-import { StateTreeNode } from "../store";
+import { StateTreeNode } from "@/store";
 import {
   Titlebar,
   Activitybar,
