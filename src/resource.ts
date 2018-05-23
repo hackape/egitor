@@ -27,11 +27,12 @@ export default class Resource extends StateTreeNode {
 
   constructor(resourceType: string) {
     super();
-    const globalState = this.globalState;
-    const $$type = (this.$$type = resourceType);
 
-    if (!globalState.hasOwnProperty($$type)) {
-      this.$$resources = globalState[$$type] = observable(new Map());
+    this.$$type = resourceType;
+    if (!this.globalState.hasOwnProperty(this.$$type)) {
+      this.globalState[this.$$type] = observable.map();
     }
+
+    this.$$resources = this.globalState[this.$$type];
   }
 }
