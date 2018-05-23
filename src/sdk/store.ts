@@ -6,7 +6,7 @@ import Tab from "./Tab";
 import Group from "./Group";
 import Pane from "./Pane";
 
-type IState = {
+export type IState = {
   workbench?: Workbench;
   fs?: FileSystem;
   tabs?: ObservableMap<string, Tab>;

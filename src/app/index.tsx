@@ -1,11 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "mobx-react";
+import { AppContainer } from "react-hot-loader";
 import App from "./App";
+import IDE from "@/sdk/IDE";
+
+const ide = new IDE();
+(window as any).ide = ide;
 
 const isString = arg => typeof arg === "string";
 
 const render = (Component: React.ComponentType) => {
-  ReactDOM.render(<Component />, document.getElementById("app"));
+  ReactDOM.render(
+    <AppContainer>
+      <Provider state={ide.store.state}>
+        <Component />
+      </Provider>
+    </AppContainer>,
+    document.getElementById("app")
+  );
 };
 
 render(App);
