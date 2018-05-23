@@ -1,5 +1,5 @@
 import { ObservableMap } from "mobx";
-import Resource from "./resource";
+import Resource from "./Resource";
 
 class Pane extends Resource {
   resources: ObservableMap<any, Pane> = this.$$resources;

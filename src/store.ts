@@ -1,14 +1,14 @@
 import { observable, ObservableMap } from "mobx";
 
 import Workbench from "./Workbench";
-import FS from "./fs";
-import Tab from "./tab";
-import TabGroup from "./tabGroup";
-import Pane from "./pane";
+import FileSystem from "./FileSystem";
+import Tab from "./Tab";
+import TabGroup from "./TabGroup";
+import Pane from "./Pane";
 
 type IState = {
   workbench?: Workbench;
-  fs?: FS;
+  fs?: FileSystem;
   tabs?: ObservableMap<string, Tab>;
   tabGroups?: ObservableMap<string, TabGroup>;
   panes?: ObservableMap<string, Pane>;

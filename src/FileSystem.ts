@@ -1,9 +1,9 @@
 import { StateTreeNode } from "./store";
 
-class FS extends StateTreeNode {
+class FileSystem extends StateTreeNode {
   constructor() {
     super();
   }
 }
 
-export default FS;
+export default FileSystem;
