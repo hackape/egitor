@@ -10,6 +10,29 @@ class Tab extends Resource {
     this.id = `tab@${getId()}`;
     this.register();
   }
+
+  @observable groupId;
+  @observable order = 0;
+
+  @computed
+  get group() {
+    return this.globalState.groups.get(this.groupId);
+  }
+
+  @action
+  destroy() {
+    this.group.removeTab(this);
+  }
+
+  @computed
+  get isActive() {
+    return this.group.activeTabId === this.id;
+  }
+
+  @action
+  activate() {
+    this.group.activateTab(this);
+  }
 }
 
 export default Tab;
