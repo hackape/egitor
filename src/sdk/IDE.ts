@@ -20,6 +20,16 @@ class IDE {
         workbench: new Workbench()
       });
     });
+
+    this.kickStartMaintainers();
+  }
+
+  kickStartMaintainers() {
+    autorun(() => {
+      this.store.state.groups.forEach(group => {
+        group.tabs.forEach((tab, index) => (tab.order = index));
+      });
+    });
   }
 }
 
