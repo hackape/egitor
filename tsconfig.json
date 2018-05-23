@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "outDir": "out/",
+    "module": "esnext",
+    "target": "es5",
+    "jsx": "react",
+    "lib": ["es2016", "es2017.object", "dom"],
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules"]
+}
