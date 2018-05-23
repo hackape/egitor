@@ -1,4 +1,4 @@
-import { ObservableMap } from "mobx";
+import { observable, computed, ObservableMap } from "mobx";
 import Resource from "./Resource";
 
 class Group extends Resource {
@@ -6,6 +6,13 @@ class Group extends Resource {
   constructor() {
     super("groups");
     this.id = String(Math.random());
+  }
+
+  @observable activeTabId: string;
+
+  @computed
+  get activeTab() {
+    return this.globalState.tabs.get(this.activeTabId);
   }
 }
 
